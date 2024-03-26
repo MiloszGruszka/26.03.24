@@ -8,16 +8,22 @@
 </head>
 <body>
    <h1>Projekt 2CT</h1>
+   <ul>
    <?php 
    $zapytanie = $polaczenie->query("SELECT `IDU`,`imie`,`nazwisko` FROM uczniowie");
+   while(list($IDU,$imie,$nazwisko)=mysqli_fetch_row($zapytanie)){
+      echo("
+      <li>
+         <a href='http://localhost:8080/26.03.24/delete.php?zmk=$IDU'>$imie $nazwisko</a>
+      </li>
+    ");
+
+   }
    
    
    ?>
-   <ul>
-      <li>
-         <a href="http://localhost:8080/26.03.24/delete.php?zmk=Milo123">Link</a>
-      </li>
    </ul>
+   
 </body>
 </html>
-<?php $polaczenie->close() ?>
+<?php $polaczenie->close(); ?>
